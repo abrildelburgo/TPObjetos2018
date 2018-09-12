@@ -2,8 +2,8 @@ import hechiceria.*
 import lucha.*
 
 object armadura{
-	var property duenio = null
-	var property refuerzo = null
+	var property duenio = rolando
+	var property refuerzo = ninguno
 	
 	method aporte(){
 		return 2 + refuerzo.valor(duenio)
@@ -31,14 +31,14 @@ object hechizo{
 }
 
 object ninguno{
-	method valor(){
+	method valor(duenio){
 		return 0
 	}
 }
 
 // ESPEJO
 object espejo{
-	var property duenio = null 
+	var property duenio = rolando 
 	
 	method aporte(){
 		if(duenio.removerEspejos().isEmpty()){

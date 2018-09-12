@@ -5,7 +5,7 @@ object rolando{
 	const property valorBaseHechiceria = 3
 	var property hechizoPreferido = espectroMalefico
 	var property valorBaseLucha = 1 // es diferente del valorbasehechiceria?
-	var property artefactos = [espadaDelDestino, collarDivino, mascaraOscura]
+	var property artefactos = [espadaDelDestino, collarDivino, mascaraOscura, armadura, espejo]
 		
 	method nivelDeHechiceria(){
 		return valorBaseHechiceria*hechizoPreferido.poder()+fuerzaOscura.valor()
@@ -32,8 +32,8 @@ object rolando{
 	method mayorLuchaQueHechiceria() = self.valorDeLucha() > self.nivelDeHechiceria()
 	
 	method removerEspejos(){
-			return artefactos.removeAll(espejo)
-		}
+			return artefactos.filter({artefacto => !artefacto.equals(espejo)})
+	}
 	
 	method maximoAporte(){
 		return self.removerEspejos().map({artefacto => artefacto.aporte()}).max()
