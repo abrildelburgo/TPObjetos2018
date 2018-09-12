@@ -1,4 +1,5 @@
 import lucha.*
+import luchaYHechiceriaAvanzada.*
 
 object rolando{
 	const property valorBaseHechiceria = 3
@@ -29,6 +30,14 @@ object rolando{
 	}
 	
 	method mayorLuchaQueHechiceria() = self.valorDeLucha() > self.nivelDeHechiceria()
+	
+	method removerEspejos(){
+			return artefactos.removeAll(espejo)
+		}
+	
+	method maximoAporte(){
+		return self.removerEspejos().map({artefacto => artefacto.aporte()}).max()
+	}
 }
 
 object espectroMalefico{
