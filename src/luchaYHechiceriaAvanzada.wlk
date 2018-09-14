@@ -41,7 +41,7 @@ object espejo{
 	var property duenio = rolando 
 	
 	method aporte(){
-		if(duenio.removerEspejos().isEmpty()){
+		if(duenio.tieneSoloEspejos()){
 			return 0
 		}
 		else{
@@ -50,5 +50,20 @@ object espejo{
 	}
 }
 
+object libroDeHechizos{
+	var property hechizos = []
+	
+	method poder(){
+		return self.aporteTotalHechizosPoderosos()
+	}
+	
+	method aporteTotalHechizosPoderosos(){
+		return self.hechizosPoderosos().map({hechizo => hechizo.poder()}).sum()
+	}
+	
+	method hechizosPoderosos(){
+		return hechizos.filter({hechizo => hechizo.poderoso()})
+	}
+}
 
-
+// 2. AL TENER LIBRODEHECHIZOS EN EL MISMO LIBRODEHECHIZOS, ROMPERIA PORQUE LIBRODEHECHIZOS NO ENTIENDE EL MENSAJE .PODEROSO()

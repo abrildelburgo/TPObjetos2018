@@ -31,6 +31,8 @@ object rolando{
 	
 	method mayorLuchaQueHechiceria() = self.valorDeLucha() > self.nivelDeHechiceria()
 	
+	method tieneSoloEspejos() = self.removerEspejos().isEmpty()
+	
 	method removerEspejos(){
 			return artefactos.filter({artefacto => !artefacto.equals(espejo)})
 	}
@@ -38,6 +40,8 @@ object rolando{
 	method maximoAporte(){
 		return self.removerEspejos().map({artefacto => artefacto.aporte()}).max()
 	}
+	
+	method estaCargado() = artefactos.size() >= 5
 }
 
 object espectroMalefico{
